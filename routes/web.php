@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TestController@welcome');
 
 Route::get('/prueba',function (){
     return 'Hola soy una ruta de prueba';
