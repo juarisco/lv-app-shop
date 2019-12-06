@@ -101,7 +101,7 @@
 
 
 
-                    <form class="form-horizontal" >
+                    {{--<form class="form-horizontal" >
 
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -147,4 +147,4 @@
 
                             </div>
                         </div>
-                    </form>
+                    </form>--}}
