@@ -44,10 +44,10 @@
                                                 class="btn btn-info btn-simple btn-xs">
                                             <i class="fa fa-info"></i>
                                         </button>
-                                        <button type="button" rel="tooltip" title="Editar producto"
+                                        <a href="{{  url("admin/products/{$product->id}/edit") }}" type="button" rel="tooltip" title="Editar producto"
                                                 class="btn btn-success btn-simple btn-xs">
                                             <i class="fa fa-edit"></i>
-                                        </button>
+                                        </a>
                                         <button type="button" rel="tooltip" title="Eliminar producto"
                                                 class="btn btn-danger btn-simple btn-xs">
                                             <i class="fa fa-times"></i>
