@@ -18,7 +18,8 @@
 
                 <div class="team">
                     <div class="row">
-                        <a href="{{ url('admin/products/create') }}" class="btn btn-primary btn-round">Nuevo producto</a>
+                        <a href="{{ url('admin/products/create') }}" class="btn btn-primary btn-round">Nuevo
+                            producto</a>
                         <table class="table">
                             <thead>
                             <tr>
@@ -36,7 +37,7 @@
                                     <td class="text-center">{{ $product->id }}</td>
                                     <td>{{ $product->name }}</td>
                                     <td class="col-md-4">{{ $product->description }}</td>
-                                    <td>{{ $product->category->name }}</td>
+                                    <td>{{ $product->category ? $product->category->name : 'General' }}</td>
                                     <td class="text-right">${{ $product->price }}</td>
                                     <td class="td-actions text-right">
                                         <button type="button" rel="tooltip" title="Ver producto"
