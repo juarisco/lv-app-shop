@@ -90,11 +90,14 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param Product $product
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return back();
     }
 }
