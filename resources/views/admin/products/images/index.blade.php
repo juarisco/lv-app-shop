@@ -16,7 +16,7 @@
             <div class="section text-center">
                 <h2 class="title">Imágenes del productos "{{ $product->name }}"</h2>
 
-                        <form method="post" action="">
+                        <form method="post" action="" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
                             <input type="file" name="photo" required>
@@ -34,7 +34,7 @@
                         <div class="col-md-4">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <img src="{{ $image->image }}" alt="">
+                                    <img src="{{ $image->url }}" alt="" width="250">
                                     <button type="submit" class="btn btn-danger btn-round">
                                         Eliminar imágen
                                     </button>
