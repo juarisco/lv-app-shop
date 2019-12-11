@@ -18,11 +18,8 @@ class AdminMiddleware
 //        if (!auth()->check() Or !auth()->user()->admin)
 //            return redirect('/login');
 
-        if (!auth()->check())
-            return redirect('/login');
-
         if (!auth()->user()->admin)
-            return redirect('/login');
+            return redirect('/');
 
         return $next($request);
     }

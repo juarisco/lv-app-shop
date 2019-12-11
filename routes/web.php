@@ -17,9 +17,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin/products', 'ProductController@index');
-Route::get('/admin/products/create', 'ProductController@create');
-Route::post('/admin/products', 'ProductController@store');
-Route::get('/admin/products/{product}/edit', 'ProductController@edit');
-Route::put('/admin/products/{product}/update', 'ProductController@update');
-Route::delete('/admin/products/{product}', 'ProductController@destroy');
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+
+    Route::get('/products', 'ProductController@index');
+    Route::get('/products/create', 'ProductController@create');
+    Route::post('/products', 'ProductController@store');
+    Route::get('/products/{product}/edit', 'ProductController@edit');
+    Route::put('/products/{product}/update', 'ProductController@update');
+    Route::delete('/products/{product}', 'ProductController@destroy');
+
+});
