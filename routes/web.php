@@ -30,4 +30,5 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::post('/products/{product}/images', 'ImageController@store');
     Route::delete('/products/{product}/images', 'ImageController@destroy');
 
+    Route::get('/products/{product}/images/select/{productImage}', 'ImageController@select');
 });

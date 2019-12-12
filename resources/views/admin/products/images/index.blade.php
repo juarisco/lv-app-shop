@@ -16,17 +16,17 @@
             <div class="section text-center">
                 <h2 class="title">Imágenes del productos "{{ $product->name }}"</h2>
 
-                        <form method="post" action="" enctype="multipart/form-data">
-                            {{ csrf_field() }}
+                <form method="post" action="" enctype="multipart/form-data">
+                    {{ csrf_field() }}
 
-                            <input type="file" name="photo" required>
-                            <button type="submit" class="btn btn-primary btn-round">
-                                Subir nueva imágen
-                            </button>
-                            <a href="{{ url('admin/products') }}" class="btn btn-default btn-round">
-                                Volver al listado de productos
-                            </a>
-                        </form>
+                    <input type="file" name="photo" required>
+                    <button type="submit" class="btn btn-primary btn-round">
+                        Subir nueva imágen
+                    </button>
+                    <a href="{{ url('admin/products') }}" class="btn btn-default btn-round">
+                        Volver al listado de productos
+                    </a>
+                </form>
                 <hr>
 
                 <div class="row">
@@ -36,7 +36,7 @@
                                 <div class="panel-body">
                                     <img src="{{ $image->url }}" alt="" width="250">
 
-                                    <form action="" method="post">
+                                    <form action="" method="post" style="display:inline;">
                                         {{ csrf_field() }} {{ method_field('DELETE') }}
 
                                         <input type="hidden" name="image_id" value="{{ $image->id }}">
@@ -44,6 +44,17 @@
                                             Eliminar imágen
                                         </button>
                                     </form>
+
+                                    @if($image->featured)
+                                        <button class="btn btn-info btn-fab btn-fab-mini btn-round" rel="tooltip" title="Imágen destacada actualmente">
+                                            <i class="material-icons">favorite</i>
+                                        </button>
+                                    @else
+                                        <a href="{{ url("admin/products/{$product->id}/images/select/{$image->id}") }}"
+                                           class="btn btn-primary btn-fab btn-fab-mini btn-round">
+                                            <i class="material-icons">favorite</i>
+                                        </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>

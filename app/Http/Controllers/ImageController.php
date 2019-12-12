@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\ProductImage;
 use File;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,8 @@ class ImageController extends Controller
 {
     public function index(Product $product)
     {
-        $images = $product->images;
+        $images = $product->images()->orderBy('featured', 'desc')->get();
+
         return view('admin.products.images.index')->with(compact('product', 'images'));
     }
 
@@ -50,6 +52,19 @@ class ImageController extends Controller
         // Eliminar el registro de la imágen en la BD
         if ($deleted)
             $productImage->delete();
+
+        return back();
+    }
+
+    public function select(Product $product, ProductImage $productImage)
+    {
+        $productImage->where('product_id', $product->id)->update([
+            'featured' => false
+        ]);
+
+        $productImage->update([
+            'featured' => true
+        ]);
 
         return back();
     }
