@@ -15,14 +15,14 @@ class ProductsTableSeeder extends Seeder
 //        factory(\App\Product::class, 100)->create();
 //        factory(\App\ProductImage::class,200)->create();
 
-        $categories = factory(\App\Category::class, 5)->create();
+        $categories = factory(\App\Category::class, 4)->create();
 
         $categories->each(function ($category) {
-            $products = factory(\App\Product::class, 20)->make();
+            $products = factory(\App\Product::class, 5)->make();
             $category->products()->saveMany($products);
 
             $products->each(function ($p) {
-                $images = factory(\App\ProductImage::class, 5)->make();
+                $images = factory(\App\ProductImage::class, 3)->make();
                 $p->images()->saveMany($images);
             });
 
