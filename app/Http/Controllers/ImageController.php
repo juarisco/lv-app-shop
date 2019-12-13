@@ -58,7 +58,9 @@ class ImageController extends Controller
 
     public function select(Product $product, ProductImage $productImage)
     {
-        $productImage->where('product_id', $product->id)->update([
+//        dd($product->images()->where('featured', true)->first());
+
+        ProductImage::where('product_id', $product->id)->update([
             'featured' => false
         ]);
 
