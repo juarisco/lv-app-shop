@@ -37,11 +37,49 @@
                     </li>
                 </ul>
 
-                @foreach(auth()->user()->cart->details as $detail)
-                    <ul>
-                        <li>{{ $detail }}</li>
-                    </ul>
-                @endforeach
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th class="col-md-2 text-center">Nombre</th>
+                        <th class="text-right">Precio</th>
+                        <th class="text-center">Cantidad</th>
+                        <th class="text-center">SubTotal</th>
+                        <th class="text-right">Opciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach(auth()->user()->cart->details as $detail)
+                        <tr>
+                            <td class="text-center">
+                                <img src="{{ $detail->product->featured_image_url }}" height="50" t="">
+                            </td>
+                            <td>
+                                <a href="{{ url("products/{$detail->product->id}") }}" target="_blank">{{ $detail->product->name }}</a>
+                            </td>
+                            <td class="text-right">${{ $detail->product->price }}</td>
+                            <td class="text-center">{{ $detail->quantity }}</td>
+                            <td class="text-center">${{ $detail->quantity * $detail->product->price}}</td>
+                            <td class="td-actions text-right">
+
+                                <form action="{{ url("admin/products/{$detail->product->id}") }}" method="post">
+                                    {{ csrf_field() }} {{ method_field('DELETE') }}
+
+                                    <a href="{{ url("products/{$detail->product->id}") }}" target="_blank" rel="tooltip" title="Ver producto"
+                                       class="btn btn-info btn-simple btn-xs">
+                                        <i class="fa fa-info"></i>
+                                    </a>
+
+                                    <button type="submit" rel="tooltip" title="Eliminar producto"
+                                            class="btn btn-danger btn-simple btn-xs">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
 
             </div>
 
