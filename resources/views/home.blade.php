@@ -37,6 +37,9 @@
                     </li>
                 </ul>
 
+                <hr>
+                <p>Tu carrito de compras presenta {{ auth()->user()->cart->details->count() }} productos.</p>
+
                 <table class="table">
                     <thead>
                     <tr>
@@ -62,8 +65,10 @@
                             <td class="text-center">${{ $detail->quantity * $detail->product->price}}</td>
                             <td class="td-actions text-right">
 
-                                <form action="{{ url("admin/products/{$detail->product->id}") }}" method="post">
+                                <form action="{{ url('/cart') }}" method="post">
                                     {{ csrf_field() }} {{ method_field('DELETE') }}
+
+                                    <input type="hidden" name="cart_detail_id" value="{{ $detail->id }}">
 
                                     <a href="{{ url("products/{$detail->product->id}") }}" target="_blank" rel="tooltip" title="Ver producto"
                                        class="btn btn-info btn-simple btn-xs">
