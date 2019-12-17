@@ -53,6 +53,9 @@
                             <li><a href="{{ url('/home') }}">Dashboard</a></li>
                             @if(auth()->user()->admin)
                                 <li>
+                                    <a href="{{ url('admin/categories') }}">Gestionar categorías</a>
+                                </li>
+                                <li>
                                     <a href="{{ url('admin/products') }}">Gestionar productos</a>
                                 </li>
                             @endif
@@ -60,7 +63,7 @@
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    Desconectarse
+                                    Cerrar sesión
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
