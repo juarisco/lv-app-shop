@@ -20,10 +20,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/products/{product}', 'ProductController@show');
 Route::get('/categories/{category}', 'CategoryController@show');
 
-Route::post('/cart','CartDetailController@store');
-Route::delete('/cart','CartDetailController@destroy');
+Route::get('/search', 'SearchController@show');
 
-Route::post('/order','CartController@update');
+Route::post('/cart', 'CartDetailController@store');
+Route::delete('/cart', 'CartDetailController@destroy');
+
+Route::post('/order', 'CartController@update');
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->namespace('Admin')->group(function () {
 

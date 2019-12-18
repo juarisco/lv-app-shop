@@ -93,6 +93,13 @@
             <div class="section text-center">
                 <h2 class="title">Visita nuestras categorías</h2>
 
+                <form action="{{ url('/search') }}" class="form-inline" method="get">
+                    <input type="text" name="query" class="form-control" placeholder="¿Qué producto buscas?">
+                    <button class="btn btn-primary btn-just-icon" type="submit">
+                        <i class="material-icons">search</i>
+                    </button>
+                </form>
+
                 <div class="team">
                     <div class="row">
                         @foreach($categories as $category)
