@@ -15,6 +15,18 @@
     <li><strong>E-mail: {{ $user->email }}</strong></li>
     <li><strong>Fecha del pedido: {{ $cart->order_date }}</strong></li>
 </ul>
+
+<p>Y estos son los detalles del pedido: </p>
+<ul>
+    @foreach($cart->details as $detail)
+        <li>
+            {{ $detail->product->name }} x {{ $detail->quantity }}
+            ($ {{ $detail->quantity * $detail->product->price }})
+        </li>
+    @endforeach
+</ul>
+<p><strong>Importe que el cliente debe pagar: </strong> {{ $cart->total }}</p>
+<hr>
 <p>
     <a href="{{ url("admin/orders/{$cart->id}") }}">Haz clic aquí</a>
     para ver más información sobre este pedido.
