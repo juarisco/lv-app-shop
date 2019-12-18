@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Bienvenido a App Shop')
+@section('title', 'Bienvenido a ' . config('app.name'))
 
 @section('body-class','landing-page')
 
@@ -10,7 +10,7 @@
             margin-bottom: 5rem;
         }
 
-        .row {
+        .team .row {
             display: -webkit-box;
             display: -webkit-flex;
             display: -ms-flexbox;
@@ -18,7 +18,7 @@
             flex-wrap: wrap;
         }
 
-        .row > [class*='col-'] {
+        .team .row > [class*='col-'] {
             display: flex;
             flex-direction: column;
         }
@@ -72,7 +72,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h1 class="title">Bienvenido a App Shop.</h1>
+                    <h1 class="title">Bienvenido a {{ config('app.name') }}.</h1>
                     <h4>Realiza pedidos en línea y te contactaremos para coordinar la entrega.</h4>
                     <br/>
                     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-danger btn-raised btn-lg">
