@@ -49,7 +49,7 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h2 class="title">¿Por qué App Shop?</h2>
-                        <h5 class="description">Puedes revisar nuestra relación completa de productos, comparar precios
+                        <h5 class="description">Puedes revisar nuestra relación completa de categoryos, comparar precios
                             y realizar tus pedidos cuando estés seguro.</h5>
                     </div>
                 </div>
@@ -91,32 +91,27 @@
             </div>
 
             <div class="section text-center">
-                <h2 class="title">Productos disponibles</h2>
+                <h2 class="title">Visita nuestras categorías</h2>
 
                 <div class="team">
                     <div class="row">
-                        @foreach($products as $product)
+                        @foreach($categories as $category)
                             <div class="col-md-4">
                                 <div class="team-player">
-                                    <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image"
+                                    <img src="{{ $category->featured_image_url }}" alt="Imágen representativa de la categoría {{ $category->name }}"
                                          class="img-raised img-circle">
                                     <h4 class="title">
-                                        <a href="{{ url("products/{$product->id}") }}">{{ $product->name }}</a>
+                                        <a href="{{ url("categories/{$category->id}") }}">{{ $category->name }}</a>
                                         <br/>
-                                        <small class="text-muted">{{ $product->category_name }}</small>
+                                        <small class="text-muted">{{ $category->category_name }}</small>
                                     </h4>
-                                    <p class="description">{{ $product->description }}</p>
-                                    {{--                                    <a href="#pablo" class="btn btn-simple btn-just-icon"><i class="fa fa-twitter"></i></a>--}}
-                                    {{--                                    <a href="#pablo" class="btn btn-simple btn-just-icon"><i--}}
-                                    {{--                                                class="fa fa-instagram"></i></a>--}}
-                                    {{--                                    <a href="#pablo" class="btn btn-simple btn-just-icon btn-default"><i--}}
-                                    {{--                                                class="fa fa-facebook-square"></i></a>--}}
+                                    <p class="description">{{ $category->description }}</p>
                                 </div>
                             </div>
                         @endforeach
                     </div>
                     <div class="text-center">
-                        {{ $products->links() }}
+                        {{-- $categories->links() --}}
                     </div>
                 </div>
 
