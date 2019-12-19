@@ -26,8 +26,14 @@ class Category extends Model
 
     public function getFeaturedImageUrlAttribute()
     {
-        $featuredProduct=$this->products()->first();
+        if ($this->image)
+            return "/images/categories/$this->image";
 
-        return $featuredProduct->featured_image_url;
+        // else
+        $firstProduct = $this->products()->first();
+        if ($firstProduct)
+            return $firstProduct->featured_image_url;
+
+        return "/images/noimage.png";
     }
 }

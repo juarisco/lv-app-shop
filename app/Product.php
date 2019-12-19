@@ -25,7 +25,7 @@ class Product extends Model
         if ($featuredImage)
             return $featuredImage->url;
 
-        return '/images/products/noimage.png';
+        return '/images/noimage.png';
     }
 
     public function getCategoryNameAttribute()
