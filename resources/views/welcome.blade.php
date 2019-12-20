@@ -174,31 +174,31 @@
                         <h4 class="text-center description">Regístrate ingresando tus datos básicos, y podrás realizar
                             tus pedidos a través de nuestro carrito de compras, Si aún no te decides, de todas formas,
                             con tu cuenta de usuario podrás hacer todas tus consultas sin compromiso.</h4>
-                        <form class="contact-form">
+                        <form action="/register" class="contact-form" method="get">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Nombre</label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" name="name" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Correo electrónico</label>
-                                        <input type="email" class="form-control">
+                                        <input type="email" name="email" class="form-control">
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="form-group label-floating">
-                                <label class="control-label">Tu mensaje</label>
-                                <textarea class="form-control" rows="4"></textarea>
-                            </div>
+{{--                            <div class="form-group label-floating">--}}
+{{--                                <label class="control-label">Tu mensaje</label>--}}
+{{--                                <textarea class="form-control" rows="4"></textarea>--}}
+{{--                            </div>--}}
 
                             <div class="row">
                                 <div class="col-md-4 col-md-offset-4 text-center">
                                     <button class="btn btn-primary btn-raised">
-                                        Enviar consulta
+                                        Iniciar registro
                                     </button>
                                 </div>
                             </div>
