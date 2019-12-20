@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request as IlluminateRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -40,5 +41,22 @@ class LoginController extends Controller
     public function username()
     {
         return 'username';
+    }
+
+    public function showLoginForm(IlluminateRequest $request)
+    {
+        if ($request->has('redirect_to')) {
+            session()->put('redirect_to', $request->input('redirect_to'));
+        }
+
+        return view('auth.login');
+    }
+
+    public function redirectTo()
+    {
+        if (session()->has('redirect_to'))
+            return session()->pull('redirect_to');
+
+        return $this->redirectTo;
     }
 }
